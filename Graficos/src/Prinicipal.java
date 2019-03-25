@@ -1,9 +1,9 @@
+import java.util.Scanner;
 
 public class Prinicipal {
 	 
 	
 	public static void main(String[] args){
-		new Create ();
+		new Create();
 	}
-	
 }

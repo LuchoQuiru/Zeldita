@@ -27,16 +27,3 @@ public class Panel extends JPanel {
 		}
 	}
 }
-
-
-/*
-public void paint(Graphics g){
-super.paint(g);
-Toolkit t = Toolkit.getDefaultToolkit();
-Image imagen = t.getImage("C:/Users/julie/Desktop/grass.png");
-g.drawImage(imagen, 0, 0, 30,30, this);
-g.drawImage(imagen, 30, 30, 30,30, this);
-g.drawImage(imagen, 60, 60, 30,30, this);
-g.drawImage(imagen, 90, 90, 30,30, this);
-g.drawImage(imagen, 120, 120, 30,30, this);
-}*/

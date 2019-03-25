@@ -7,6 +7,7 @@ public class Create {
 	private ConstructorMapa mapa;
 	private Hilo hilo;
 	PositionList<entidades> lista ;
+	private	boolean [][] tabla;
 	
 	Create(){
 		crear();
@@ -14,7 +15,7 @@ public class Create {
 	
 	public void crear () {
 		lista = new List<entidades> ();
-		crear_nivel();
+		generar_mapa();
 		ventana = new Frame();
 		mapa = new ConstructorMapa();
 		panel = new Panel(ventana,lista);
@@ -23,23 +24,61 @@ public class Create {
 		hilo = new Hilo(panel);
 		hilo.run();
 	}
-	private void crear_nivel() {
-		////////
-		entidades p1 = new carafeliz(0,0);
-		entidades p2 = new carafeliz(20,20);
-		entidades p3 = new carafeliz(40,40);
-			lista.addFirst(p3);
-			lista.addFirst(p2);
-			lista.addFirst(p1);
-		////////
-			
-			////////
-			entidades p4 = new Obstaculo (100,100);
-			entidades p5 = new Obstaculo (180,220);
-			entidades p6 = new Obstaculo (540,340);
-			lista.addFirst(p4);
-			lista.addFirst(p5);
-			lista.addFirst(p6);
-			///////////
+	
+	/*
+	 * Los proximos servicios crearán el mapa, incluyendo obstaculos y enemigos de manera aleatoria
+	 */
+	private void generar_mapa() {
+		generar_tabla();
+		generar_obstaculos();
+		generar_enemigos();
+	}
+	
+	private void generar_tabla() {
+		//Esta tabla es una representacion de los objetos, en una tabla de 30x30
+		tabla = new boolean[30][30];
+		for (int i = 0 ; i<30 ; i++) {
+			for (int j = 0 ; j<30 ; j++) {
+				tabla[i][j] = false;
+			}
+		}
+	}
+	
+	private boolean posicion_libre (int i, int j) {
+		return tabla[i/20][j/20];
+	}
+	
+	private void agregar_entabla(int i, int j) {
+		tabla[i/20][j/20] = true;
+	}
+	
+	private void generar_obstaculos() {
+		for (int i = 0 ; i<50 ; i++) {
+			int random1 = generar_numero();
+			int random2 = generar_numero();
+			while (posicion_libre(random1,random2) == true) {
+				random1 = generar_numero();
+				random2 = generar_numero();
+			}
+			lista.addFirst(new Obstaculo(random1,random2));
+			agregar_entabla(random1,random2);
+		}
+	}
+	
+	private void generar_enemigos () {
+		for (int i = 0 ; i<10 ; i++) {
+			int random1 = generar_numero();
+			int random2 = generar_numero();
+			while (posicion_libre(random1,random2) == true) {
+				random1 = generar_numero();
+				random2 = generar_numero();
+			}		
+			lista.addFirst(new carafeliz(random1, random2));
+			agregar_entabla(random1,random2);
+		}
+	}
+
+	private int generar_numero() {
+		return (20 * ( (int) (Math.random() * 28) + 1));
 	}
 }
