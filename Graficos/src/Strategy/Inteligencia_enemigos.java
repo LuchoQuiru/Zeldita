@@ -1,15 +1,21 @@
 package Strategy;
 
 import Singleton.*;
-import Personajes.enemigos;
-import Personajes.jugador;
+import PrincipalPackage.*;
+import Personajes.*;
 
 public abstract class Inteligencia_enemigos {
 	protected enemigos enemigo_propio;
 	protected tabla tabla ;
 	protected int pos_x_jugador, pos_y_jugador, pos_x_enemigo, pos_y_enemigo;
+	protected actualizador actualizador; 
 	
-	public void seguir_jugador() {};
+	public void mover() {};
+	
+	protected void crear_disparo () {
+		disparo disparo = new disparoenemigo (enemigo_propio.getx(),enemigo_propio.gety(), enemigo_propio.getAlcance(), "arriba");
+		actualizador.agregarDisparo(disparo);
+	}
 	
 	protected void mover_arriba() {
 		enemigo_propio.sety(pos_y_enemigo + 20);

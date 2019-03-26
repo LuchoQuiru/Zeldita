@@ -1,3 +1,4 @@
+package PrincipalPackage;
 
 import Singleton.*;
 import Lista.*;
@@ -8,12 +9,11 @@ public class Create {
 	private Panel panel ;
 	private ConstructorMapa mapa;
 	private Hilo hilo;
-	private Hilo2 hilo2;
 	PositionList<entidades> lista ;
-	PositionList<enemigos> listaenemigos ;
 	private jugador jugador;
 	private tabla tabla;
 	private Teclado teclado;
+	private actualizador actualizador;
 	
 	Create(){
 		crear();
@@ -22,19 +22,17 @@ public class Create {
 	public void crear () {
 		tabla = tabla.getinstance();
 		lista = new List<entidades> ();
-		listaenemigos = new List<enemigos>();
+		actualizador = new actualizador (lista);
 		generar_mapa();
 		ventana = new Frame();
 		mapa = new ConstructorMapa();
-		panel = new Panel(ventana,lista,listaenemigos);
+		panel = new Panel(ventana,lista);
 		ventana.addpanel(mapa);
 		ventana.addpanel(panel);
 		teclado = new Teclado();
 
-		hilo = new Hilo(panel,listaenemigos);
-		hilo2 = new Hilo2(jugador,teclado);
+		hilo = new Hilo(panel,actualizador);
 		hilo.run();
-		//hilo2.run();
 		
 	}
 	
@@ -42,7 +40,6 @@ public class Create {
 	 * Los proximos servicios crearán el mapa, incluyendo obstaculos y enemigos de manera aleatoria
 	 */
 	private void generar_mapa() {
-		//generar_tabla();
 		generar_obstaculos();
 		generar_jugador();
 		generar_enemigos();
@@ -79,14 +76,14 @@ public class Create {
 	
 	private void generar_enemigos () {
 		
-		for (int i = 0 ; i<10 ; i++) {
+		for (int i = 0 ; i<1 ; i++) {
 			int random1 = generar_numero();
 			int random2 = generar_numero();
 			while (tabla.posicion_libre(random1,random2) == true) {
 				random1 = generar_numero();
 				random2 = generar_numero();
 			}		
-			listaenemigos.addFirst(new carafeliz(random1, random2,jugador));
+			lista.addFirst(new carafeliz(random1, random2,jugador,actualizador));
 			agregar_entabla(random1,random2);
 		}
 	}

@@ -1,3 +1,4 @@
+package PrincipalPackage;
 import java.util.Scanner;
 
 public class Prinicipal {

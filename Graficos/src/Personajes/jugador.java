@@ -1,6 +1,6 @@
 package Personajes;
 
-public class jugador extends entidades {
+public class jugador extends personajes {
 	//private Teclado teclado;
 	
 	public jugador (int posx, int posy){
@@ -8,6 +8,10 @@ public class jugador extends entidades {
 		this.posy = posy;
 		ruta = "C:/Users/julie/Desktop/3.png";
 		//teclado = new Teclado();
+	}
+
+	@Override
+	public void mover() {
 	}
 	
 	/*public void mover () {

@@ -7,4 +7,7 @@ public class Obstaculo extends entidades {
 		this.posy = posy;
 		ruta = "C:/Users/julie/Desktop/obstaculo.png";
 	}
+
+	public void mover() {
+	}
 }

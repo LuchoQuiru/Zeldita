@@ -1,26 +1,42 @@
 package Strategy;
+import PrincipalPackage.*;
 import Personajes.*;
 import Singleton.*;
 
 public class inteligencia_uno extends Inteligencia_enemigos {
 	private jugador jugador;
 	
-	public inteligencia_uno(jugador jugador, enemigos enemigo) {
+	public inteligencia_uno(jugador jugador, enemigos enemigo, actualizador a) {
 		this.jugador = jugador; 
 		enemigo_propio = enemigo;
 		this.tabla = tabla.getinstance();
+		this.actualizador = a; 
 	}
 		
-	public void seguir_jugador() {
+	public void mover() {
 		pos_x_jugador = jugador.getx();
 		pos_y_jugador = jugador.gety();
 		pos_x_enemigo = enemigo_propio.getx();
 		pos_y_enemigo = enemigo_propio.gety();
 		mover_alguneje();
+		
+		if(moneda_azar()==1)
+			generar_disparo();
+		
+	}
+	
+	private void generar_disparo () { 
+		disparo d = new disparoenemigo(enemigo_propio.getx(), enemigo_propio.gety(), enemigo_propio.getAlcance(), "arriba");
+		actualizador.agregarDisparo(d);
+	}
+	
+	private int moneda_azar() {
+		//Este metodo retorna un 0 o un 1, al azar
+		return (int) (Math.random()*2);
 	}
 	
 	private void mover_alguneje() {
-		int num = (int) ((Math.random() * 2) + 1);
+		int num = moneda_azar();
 		if (num==1)
 			mover_enx();
 		else
@@ -88,4 +104,5 @@ public class inteligencia_uno extends Inteligencia_enemigos {
 			memovi=true;
 		}
 	}
+
 }

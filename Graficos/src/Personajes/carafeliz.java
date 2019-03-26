@@ -1,13 +1,20 @@
 package Personajes;
+import PrincipalPackage.*;
 import Strategy.*;
+import Visitor.*;
 public class carafeliz extends enemigos {
 
-	public carafeliz (int posx, int posy, jugador jugador){
+	public carafeliz (int posx, int posy, jugador jugador,actualizador actualizador){
 		this.posx = posx;
 		this.posy = posy;
 		ruta = "C:/Users/julie/Desktop/0.png";
-		
-		inteligencia = new inteligencia_dos(this);
+		this.alcancedisparo = 5;
+		v = new visitadorenemigo();
+		inteligencia = new inteligencia_uno(jugador,this,actualizador);
+	}
+	
+	public void aceptar (visitador v) {
+		v.visitar(this);
 	}
 	
 }

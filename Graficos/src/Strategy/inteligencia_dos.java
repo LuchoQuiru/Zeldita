@@ -1,5 +1,6 @@
 package Strategy;
 
+import PrincipalPackage.*;
 import Personajes.*;
 
 /*
@@ -9,9 +10,10 @@ import Personajes.*;
 
 public class inteligencia_dos extends Inteligencia_enemigos{
 	
-	public inteligencia_dos (enemigos enemigo) {
+	public inteligencia_dos (enemigos enemigo, actualizador a) {
 		this.enemigo_propio = enemigo; 
 		this.tabla = tabla.getinstance();
+		this.actualizador = a; 
 	}
 	
 	private int moneda_azar() {
@@ -19,7 +21,7 @@ public class inteligencia_dos extends Inteligencia_enemigos{
 		return (int) (Math.random()*2);
 	}
 	
-	public void seguir_jugador() {
+	public void mover() {
 		pos_x_enemigo = enemigo_propio.getx();
 		pos_y_enemigo = enemigo_propio.gety();
 		mover_alguneje();

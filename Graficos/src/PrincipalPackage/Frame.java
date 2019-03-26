@@ -1,3 +1,4 @@
+package PrincipalPackage;
 import javax.swing.JFrame;
 
 import Personajes.*;
