@@ -48,10 +48,6 @@ public class Create {
 		generar_enemigos();
 	}
 	
-	private boolean posicion_libre (int i, int j) {
-		return tabla.getvalue(i/20, j/20);
-	}
-	
 	private void agregar_entabla(int i, int j) { 
 		tabla.setvalue(true, i/20, j/20);
 	}
@@ -59,7 +55,7 @@ public class Create {
 	public void generar_jugador () {
 		int random1 = generar_numero();
 		int random2 = generar_numero();
-		while (posicion_libre(random1,random2) == true) {
+		while (tabla.posicion_libre(random1,random2) == true) {
 			random1 = generar_numero();
 			random2 = generar_numero();
 		}
@@ -72,7 +68,7 @@ public class Create {
 		for (int i = 0 ; i<50 ; i++) {
 			int random1 = generar_numero();
 			int random2 = generar_numero();
-			while (posicion_libre(random1,random2) == true) {
+			while (tabla.posicion_libre(random1,random2) == true) {
 				random1 = generar_numero();
 				random2 = generar_numero();
 			}
@@ -82,10 +78,11 @@ public class Create {
 	}
 	
 	private void generar_enemigos () {
+		
 		for (int i = 0 ; i<10 ; i++) {
 			int random1 = generar_numero();
 			int random2 = generar_numero();
-			while (posicion_libre(random1,random2) == true) {
+			while (tabla.posicion_libre(random1,random2) == true) {
 				random1 = generar_numero();
 				random2 = generar_numero();
 			}		
