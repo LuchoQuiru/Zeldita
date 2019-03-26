@@ -3,10 +3,8 @@ import Personajes.*;
 import Singleton.*;
 
 public class inteligencia_uno extends Inteligencia_enemigos {
-	private enemigos enemigo_propio;
 	private jugador jugador;
-	private tabla tabla;
-	int pos_x_jugador, pos_y_jugador, pos_x_enemigo, pos_y_enemigo;
+	//int pos_x_jugador, pos_y_jugador, pos_x_enemigo, pos_y_enemigo;
 	
 	public inteligencia_uno(jugador jugador, enemigos enemigo) {
 		this.jugador = jugador; 
@@ -80,9 +78,6 @@ public class inteligencia_uno extends Inteligencia_enemigos {
 		}
 		if (!memovi && debo_ir_arriba && move_arriba) {
 			mover_arriba();
-			/*enemigo_propio.sety(pos_y_enemigo + 20);
-			tabla.setvalue(false, pos_x_enemigo/20, pos_y_enemigo/20);
-			tabla.setvalue(true, pos_x_enemigo/20, (pos_y_enemigo + 20) /20);*/
 			memovi=true;
 		}
 		//Analizo si me puedo mover para algun lado
@@ -97,25 +92,25 @@ public class inteligencia_uno extends Inteligencia_enemigos {
 		}
 	}
 
-	private void mover_arriba() {
+	/*protected void mover_arriba() {
 		enemigo_propio.sety(pos_y_enemigo + 20);
 		tabla.setvalue(false, pos_x_enemigo/20, pos_y_enemigo/20);
 		tabla.setvalue(true, pos_x_enemigo/20, (pos_y_enemigo + 20) /20);
 	}
-	private void mover_abajo() {
+	protected void mover_abajo() {
 		enemigo_propio.sety(pos_y_enemigo - 20);
 		tabla.setvalue(false, pos_x_enemigo/20, pos_y_enemigo/20);
 		tabla.setvalue(true, pos_x_enemigo/20, (pos_y_enemigo - 20) /20);
 	}
-	private void mover_der() {
+	protected void mover_der() {
 		enemigo_propio.setx(pos_x_enemigo + 20);
 		tabla.setvalue(false, pos_x_enemigo/20, pos_y_enemigo/20);
 		tabla.setvalue(true, (pos_x_enemigo + 20) / 20, pos_y_enemigo / 20 );
 	}
 	
-	private void mover_izq() {
+	protected void mover_izq() {
 		enemigo_propio.setx(pos_x_enemigo - 20);
 		tabla.setvalue(false, pos_x_enemigo/20, pos_y_enemigo/20);
 		tabla.setvalue(true, (pos_x_enemigo - 20) / 20, pos_y_enemigo / 20 );
-	}
+	}*/
 }

@@ -30,10 +30,10 @@ public class Panel extends JPanel {
 		}
 		//boolean decir = true;
 		for (Position<enemigos> p : listaenemigos.positions()) {
-			/*if (decir) {
-				System.out.println ("X: " + p.element().getx() + "Y: " + p.element().gety());
-				decir=false;
-			}*/
+			//if (decir) {
+				//System.out.println ("X: " + p.element().getx() + "Y: " + p.element().gety());
+				//decir=false;
+			//
 			imagen = t.getImage(p.element().getruta());
 			g.drawImage(imagen, p.element().getx(), p.element().gety(), 20,20, this);
 		}

@@ -20,7 +20,7 @@ public class Hilo extends Thread {
 		while(ejecutar) {
 			try {
 				System.out.println ("Hilardo");
-				Thread.sleep(100);
+				Thread.sleep(1000);
 				p.repaint();
 				actualizar_enemigos();
 			}
