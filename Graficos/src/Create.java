@@ -79,7 +79,7 @@ public class Create {
 	
 	private void generar_enemigos () {
 		
-		for (int i = 0 ; i<70 ; i++) {
+		for (int i = 0 ; i<10 ; i++) {
 			int random1 = generar_numero();
 			int random2 = generar_numero();
 			while (tabla.posicion_libre(random1,random2) == true) {

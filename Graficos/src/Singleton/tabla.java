@@ -21,7 +21,7 @@ public class tabla {
 	
 	public boolean posicion_libre (int i, int j) {
 		if (i<0 || j<0 || i>599 || j>599)
-			return false;
+			return !false;
 		return tabla[i/20][j/20];
 	}
 	
@@ -29,7 +29,7 @@ public class tabla {
 		return tabla[i][j];
 	}
 	public void setvalue(boolean b, int i, int j) {
-		if(i>=0 || j>=0 || i<30 || j<30)
+		if(i>=0 && j>=0 && i<30 && j<30)
 			tabla[i][j] = b;
 	}
 }

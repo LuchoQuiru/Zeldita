@@ -4,7 +4,6 @@ import Singleton.*;
 
 public class inteligencia_uno extends Inteligencia_enemigos {
 	private jugador jugador;
-	//int pos_x_jugador, pos_y_jugador, pos_x_enemigo, pos_y_enemigo;
 	
 	public inteligencia_uno(jugador jugador, enemigos enemigo) {
 		this.jugador = jugador; 
@@ -17,10 +16,10 @@ public class inteligencia_uno extends Inteligencia_enemigos {
 		pos_y_jugador = jugador.gety();
 		pos_x_enemigo = enemigo_propio.getx();
 		pos_y_enemigo = enemigo_propio.gety();
-		mover_aleatorio();
+		mover_alguneje();
 	}
 	
-	private void mover_aleatorio() {
+	private void mover_alguneje() {
 		int num = (int) ((Math.random() * 2) + 1);
 		if (num==1)
 			mover_enx();
@@ -49,7 +48,6 @@ public class inteligencia_uno extends Inteligencia_enemigos {
 			memovi = true;
 		}
 		//Analizo si me puedo mover para algun lado
-		//o pdria resolver esto en Y
 		if(!memovi && move_der) {
 			mover_der();
 			memovi=true;
@@ -81,7 +79,6 @@ public class inteligencia_uno extends Inteligencia_enemigos {
 			memovi=true;
 		}
 		//Analizo si me puedo mover para algun lado
-		//podriá fijarme que pasa en x, o resolverlo en y
 		if (!memovi && move_abajo) {
 			mover_abajo();
 			memovi=true;
@@ -91,26 +88,4 @@ public class inteligencia_uno extends Inteligencia_enemigos {
 			memovi=true;
 		}
 	}
-
-	/*protected void mover_arriba() {
-		enemigo_propio.sety(pos_y_enemigo + 20);
-		tabla.setvalue(false, pos_x_enemigo/20, pos_y_enemigo/20);
-		tabla.setvalue(true, pos_x_enemigo/20, (pos_y_enemigo + 20) /20);
-	}
-	protected void mover_abajo() {
-		enemigo_propio.sety(pos_y_enemigo - 20);
-		tabla.setvalue(false, pos_x_enemigo/20, pos_y_enemigo/20);
-		tabla.setvalue(true, pos_x_enemigo/20, (pos_y_enemigo - 20) /20);
-	}
-	protected void mover_der() {
-		enemigo_propio.setx(pos_x_enemigo + 20);
-		tabla.setvalue(false, pos_x_enemigo/20, pos_y_enemigo/20);
-		tabla.setvalue(true, (pos_x_enemigo + 20) / 20, pos_y_enemigo / 20 );
-	}
-	
-	protected void mover_izq() {
-		enemigo_propio.setx(pos_x_enemigo - 20);
-		tabla.setvalue(false, pos_x_enemigo/20, pos_y_enemigo/20);
-		tabla.setvalue(true, (pos_x_enemigo - 20) / 20, pos_y_enemigo / 20 );
-	}*/
 }

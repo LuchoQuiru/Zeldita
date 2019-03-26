@@ -7,7 +7,7 @@ public class carafeliz extends enemigos {
 		this.posy = posy;
 		ruta = "C:/Users/julie/Desktop/0.png";
 		
-		inteligencia = new inteligencia_uno(jugador,this);
+		inteligencia = new inteligencia_dos(this);
 	}
 	
 }
