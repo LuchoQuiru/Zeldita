@@ -1,8 +1,10 @@
 package Personajes;
+import Singleton.*;
+public class fantasma extends enemigos{
 
-public class fantasma extends entidades {
-
-	public fantasma (){
+	public fantasma (int posx, int posy, tabla tabla, jugador jugador){
+		this.posx = posx;
+		this.posy = posy;
 		ruta = "C:/Users/julie/Desktop/3.png";
 	}
 }

@@ -1,8 +1,10 @@
 package Personajes;
+import Singleton.*;
+public class zombie extends enemigos{
 
-public class zombie extends entidades {
-
-	public zombie (){
-		ruta = "C:/Users/julie/Desktop/1.png";
+	public zombie (int posx, int posy, tabla tabla, jugador jugador){
+		this.posx = posx;
+		this.posy = posy;
+		ruta = "C:/Users/julie/Desktop/3.png";
 	}
 }
