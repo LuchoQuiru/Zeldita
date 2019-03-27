@@ -5,19 +5,17 @@ import javax.swing.JFrame;
 public class Frame extends JFrame {
 	Panel p;
 	
-	public Frame(){
+	public Frame(control t){
 		
 		setSize(620,640);
 		setDefaultCloseOperation(3);
 		setLocationRelativeTo(null);
 		setVisible(true);
+		addKeyListener(t);
 	}
 	
 	public void addpanel(Panel p) {
 		this.add(p);
-	}
-	public void addpanel(ConstructorMapa m) {
-		this.add(m);
 	}
 }
 

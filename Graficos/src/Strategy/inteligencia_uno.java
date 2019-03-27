@@ -43,12 +43,9 @@ public class inteligencia_uno extends Inteligencia_enemigos {
 	}
 	
 	private void mover_enx() {
-		System.out.println ("Entré a mover_enX");
 		boolean move_izq , move_der; 
 		move_izq = ! (tabla.posicion_libre(pos_x_enemigo - 20, pos_y_enemigo));
 		move_der = ! (tabla.posicion_libre(pos_x_enemigo + 20, pos_y_enemigo));
-		System.out.println ("Move_izq: " + move_izq);
-		System.out.println ("Move_der: " + move_der);
 		boolean debo_ir_izq = pos_x_enemigo > pos_x_jugador;
 		boolean debo_ir_der = pos_x_enemigo < pos_x_jugador;
 		boolean memovi = false;
@@ -75,12 +72,9 @@ public class inteligencia_uno extends Inteligencia_enemigos {
 	
 	private void mover_eny() {
 		boolean memovi = false;
-		System.out.println ("Entré a mover_enY");
 		boolean move_arriba , move_abajo; 
 		move_arriba = ! (tabla.posicion_libre(pos_x_enemigo, pos_y_enemigo + 20));
 		move_abajo =  ! (tabla.posicion_libre(pos_x_enemigo, pos_y_enemigo - 20));
-		System.out.println ("Move_arriba: " + move_arriba);
-		System.out.println ("Move_abajo: " + move_abajo);
 		boolean debo_ir_abajo = pos_y_enemigo > pos_y_jugador;
 		boolean debo_ir_arriba = pos_y_enemigo < pos_y_jugador;
 		

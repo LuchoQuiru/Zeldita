@@ -7,12 +7,11 @@ import Personajes.*;
 public class Create {
 	private Frame ventana ;
 	private Panel panel ;
-	private ConstructorMapa mapa;
 	private Hilo hilo;
 	PositionList<entidades> lista ;
 	private jugador jugador;
 	private tabla tabla;
-	//private Teclado teclado;
+	private control control;
 	private actualizador actualizador;
 	
 	Create(){
@@ -22,14 +21,14 @@ public class Create {
 	public void crear () {
 		tabla = tabla.getinstance();
 		lista = new List<entidades> ();
-		actualizador = new actualizador (lista);
-		generar_mapa();
-		ventana = new Frame();
-		mapa = new ConstructorMapa();
+		generar_jugador();
+		control = new control(jugador);
+		actualizador = new actualizador (lista,control, jugador);
+		generar_obstaculos();
+		generar_enemigos();
+		ventana = new Frame(control);
 		panel = new Panel(ventana,lista);
-		ventana.addpanel(mapa);
 		ventana.addpanel(panel);
-		//teclado = new Teclado();
 
 		hilo = new Hilo(panel,actualizador);
 		hilo.run();
@@ -39,11 +38,11 @@ public class Create {
 	/*
 	 * Los proximos servicios crearán el mapa, incluyendo obstaculos y enemigos de manera aleatoria
 	 */
-	private void generar_mapa() {
+	/*private void generar_mapa() {
 		generar_obstaculos();
 		generar_jugador();
 		generar_enemigos();
-	}
+	}*/
 	
 	private void agregar_entabla(int i, int j) { 
 		tabla.setvalue(true, i/20, j/20);
@@ -76,7 +75,7 @@ public class Create {
 	
 	private void generar_enemigos () {
 		
-		for (int i = 0 ; i<1 ; i++) {
+		for (int i = 0 ; i<0 ; i++) {
 			int random1 = generar_numero();
 			int random2 = generar_numero();
 			while (tabla.posicion_libre(random1,random2) == true) {
