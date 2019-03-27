@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class ConstructorMapa extends JPanel {
 	private int contador_x;
 	private int contador_y;

@@ -14,12 +14,23 @@ public class actualizador {
 	}
 	
 	public void actualizar_entidades () {
+		boolean debo_eliminar = false;
 		for(Position<entidades> p : lista.positions()) {
-			p.element().mover();
+			debo_eliminar = p.element().mover();
+			if (debo_eliminar) {
+						try {
+								lista.remove(p);
+						} catch (InvalidPositionException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+						}
+						debo_eliminar = true;
+			}
 		}
 	}
 
 	public void chequear_colisiones () {
+		System.out.println ("hola");
 		for(Position<entidades> p : lista.positions()) {
 			for(Position<entidades> e : lista.positions()) {
 				if (p.element().iguales(e.element())) {

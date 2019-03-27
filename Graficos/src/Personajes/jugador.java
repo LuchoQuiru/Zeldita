@@ -1,5 +1,7 @@
 package Personajes;
 
+import Visitor.*;
+
 public class jugador extends personajes {
 	//private Teclado teclado;
 	
@@ -8,10 +10,22 @@ public class jugador extends personajes {
 		this.posy = posy;
 		ruta = "C:/Users/julie/Desktop/3.png";
 		//teclado = new Teclado();
+		this.v = new visitadorjugador();
+		this.vida=100;
 	}
 
+	
+	
 	@Override
-	public void mover() {
+	public boolean mover() {
+		return false;
+	}
+
+
+
+	@Override
+	public void aceptar(visitador v) {
+		v.visitar(this);
 	}
 	
 	/*public void mover () {

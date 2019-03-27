@@ -7,8 +7,8 @@ public abstract class enemigos extends personajes {
 	protected Inteligencia_enemigos inteligencia;
 	protected int alcancedisparo;
 	
-	public void mover() {
-		inteligencia.mover();
+	public boolean mover() {
+		return inteligencia.mover();
 	}
 	
 	public int getAlcance() {

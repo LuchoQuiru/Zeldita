@@ -12,7 +12,7 @@ public class Create {
 	PositionList<entidades> lista ;
 	private jugador jugador;
 	private tabla tabla;
-	private Teclado teclado;
+	//private Teclado teclado;
 	private actualizador actualizador;
 	
 	Create(){
@@ -29,7 +29,7 @@ public class Create {
 		panel = new Panel(ventana,lista);
 		ventana.addpanel(mapa);
 		ventana.addpanel(panel);
-		teclado = new Teclado();
+		//teclado = new Teclado();
 
 		hilo = new Hilo(panel,actualizador);
 		hilo.run();

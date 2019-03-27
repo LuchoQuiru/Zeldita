@@ -10,11 +10,11 @@ public abstract class Inteligencia_enemigos {
 	protected int pos_x_jugador, pos_y_jugador, pos_x_enemigo, pos_y_enemigo;
 	protected actualizador actualizador; 
 	
-	public void mover() {};
+	public abstract boolean mover() ;
 	
-	protected void crear_disparo () {
-		disparo disparo = new disparoenemigo (enemigo_propio.getx(),enemigo_propio.gety(), enemigo_propio.getAlcance(), "arriba");
-		actualizador.agregarDisparo(disparo);
+	protected void generar_disparo () { 
+		disparo d = new disparoenemigo(enemigo_propio.getx(), enemigo_propio.gety()-20, enemigo_propio.getAlcance(), "arriba");
+		actualizador.agregarDisparo(d);
 	}
 	
 	protected void mover_arriba() {

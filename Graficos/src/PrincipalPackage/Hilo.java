@@ -1,17 +1,12 @@
 package PrincipalPackage;
-import Lista.*;
-import Personajes.*;
 
 public class Hilo extends Thread {
 	private volatile boolean ejecutar;
 	private Panel p ;
-	private PositionList<enemigos> listaenemigos;
-	private PositionList<entidades> lista;
 	private actualizador actualizador; 
 	
 	public Hilo (Panel p, actualizador act) {
-		this.p = p;
-		this.lista = lista; 
+		this.p = p; 
 		this.actualizador = act;
 	}
 
@@ -24,9 +19,10 @@ public class Hilo extends Thread {
 		while(ejecutar) {
 			try {
 				System.out.println ("Hilardo");
-				Thread.sleep(1000);
+				Thread.sleep(500);
 				p.repaint();
 				actualizador.actualizar_entidades();
+				actualizador.chequear_colisiones();
 			}
 			catch (InterruptedException e) {
 				

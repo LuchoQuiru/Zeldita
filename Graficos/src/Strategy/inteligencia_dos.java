@@ -21,10 +21,19 @@ public class inteligencia_dos extends Inteligencia_enemigos{
 		return (int) (Math.random()*2);
 	}
 	
-	public void mover() {
-		pos_x_enemigo = enemigo_propio.getx();
-		pos_y_enemigo = enemigo_propio.gety();
-		mover_alguneje();
+	public boolean mover() {
+		if(enemigo_propio.getvida()==0)
+			return true;
+		else {
+			pos_x_enemigo = enemigo_propio.getx();
+			pos_y_enemigo = enemigo_propio.gety();
+			mover_alguneje();
+			
+			if(moneda_azar()==1)
+				generar_disparo();
+			
+		}
+		return false;
 	}
 	
 	private void mover_alguneje() {

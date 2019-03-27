@@ -1,14 +1,13 @@
 package PrincipalPackage;
 import javax.swing.JFrame;
 
-import Personajes.*;
-
+@SuppressWarnings("serial")
 public class Frame extends JFrame {
 	Panel p;
 	
 	public Frame(){
 		
-		setSize(600,600);
+		setSize(620,640);
 		setDefaultCloseOperation(3);
 		setLocationRelativeTo(null);
 		setVisible(true);

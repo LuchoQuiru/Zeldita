@@ -8,6 +8,7 @@ import Lista.*;
 import Personajes.*;
 
 
+@SuppressWarnings("serial")
 public class Panel extends JPanel { 
 	private PositionList<entidades> lista;
 	Frame frame;

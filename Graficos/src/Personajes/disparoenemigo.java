@@ -1,5 +1,6 @@
 package Personajes;
-import PrincipalPackage.*;
+
+import Visitor.*;
 
 public class disparoenemigo extends disparo {
 	
@@ -9,6 +10,13 @@ public class disparoenemigo extends disparo {
 		this.posy = posy;
 		this.ruta = "C:/Users/julie/Desktop/balaE.png";
 		this.dirmovimiento = dirmovimiento;
+		this.vida=100;
+		this.v = new visitadordisparoenemigo(this);
+	}
+
+	@Override
+	public void aceptar(visitador v) {
+		v.visitar(this);
 	}
 	
 

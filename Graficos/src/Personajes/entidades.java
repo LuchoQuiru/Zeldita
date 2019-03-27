@@ -6,13 +6,21 @@ public abstract class entidades {
 	protected int posx;
 	protected int posy;
 	protected visitador v;
+	protected int vida;
+	
+	public void setvida (int i) {
+		vida=i;
+	}
+	
+	public int getvida() {
+		return vida;
+	}
 	
 	public visitador getvisitador() {
 		return v;
 	}
 	
-	public void aceptar (visitador v) {
-	}
+	public abstract void aceptar (visitador v);
 	
 	public String getruta(){
 		return ruta;
@@ -38,5 +46,5 @@ public abstract class entidades {
 		posy= y;
 	}
 
-	public abstract void mover();
+	public abstract boolean mover();
 }

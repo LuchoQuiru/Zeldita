@@ -1,7 +1,6 @@
 package Strategy;
 import PrincipalPackage.*;
 import Personajes.*;
-import Singleton.*;
 
 public class inteligencia_uno extends Inteligencia_enemigos {
 	private jugador jugador;
@@ -13,21 +12,21 @@ public class inteligencia_uno extends Inteligencia_enemigos {
 		this.actualizador = a; 
 	}
 		
-	public void mover() {
-		pos_x_jugador = jugador.getx();
-		pos_y_jugador = jugador.gety();
-		pos_x_enemigo = enemigo_propio.getx();
-		pos_y_enemigo = enemigo_propio.gety();
-		mover_alguneje();
+	public boolean mover() {
+		if (enemigo_propio.getvida()==0)
+			return true;
+		else {
+			pos_x_jugador = jugador.getx();
+			pos_y_jugador = jugador.gety();
+			pos_x_enemigo = enemigo_propio.getx();
+			pos_y_enemigo = enemigo_propio.gety();
+			mover_alguneje();
 		
-		if(moneda_azar()==1)
-			generar_disparo();
+			if(moneda_azar()==1)
+				generar_disparo();
+		}
+		return false;
 		
-	}
-	
-	private void generar_disparo () { 
-		disparo d = new disparoenemigo(enemigo_propio.getx(), enemigo_propio.gety(), enemigo_propio.getAlcance(), "arriba");
-		actualizador.agregarDisparo(d);
 	}
 	
 	private int moneda_azar() {
