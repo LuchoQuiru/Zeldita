@@ -27,11 +27,14 @@ public class Create {
 		generar_obstaculos();
 		generar_enemigos();
 		ventana = new Frame(control);
-		panel = new Panel(ventana,lista);
+		panel = new Panel(ventana,jugador,lista);
 		ventana.addpanel(panel);
+		control.setPanel(panel);
 
 		hilo = new Hilo(panel,actualizador);
 		hilo.run();
+		
+		
 		
 	}
 	
@@ -56,7 +59,7 @@ public class Create {
 			random2 = generar_numero();
 		}
 		jugador = new jugador(random1,random2);
-		lista.addFirst(jugador);
+		//lista.addFirst(jugador);
 		agregar_entabla(random1,random2);
 	}
 	
@@ -75,7 +78,7 @@ public class Create {
 	
 	private void generar_enemigos () {
 		
-		for (int i = 0 ; i<0 ; i++) {
+		for (int i = 0 ; i<10 ; i++) {
 			int random1 = generar_numero();
 			int random2 = generar_numero();
 			while (tabla.posicion_libre(random1,random2) == true) {

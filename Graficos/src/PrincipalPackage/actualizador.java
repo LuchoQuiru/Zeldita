@@ -29,8 +29,13 @@ public class actualizador {
 								e.printStackTrace();
 						}
 						debo_eliminar = true;
+						actualizar_jugador();
 			}
 		}
+	}
+	
+	public void actualizar_jugador() {
+		jugador.mover();
 	}
 
 	public void chequear_colisiones () {

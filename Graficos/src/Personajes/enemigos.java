@@ -1,6 +1,7 @@
 package Personajes;
 import Strategy.*;
 import Singleton.*;
+import java.util.concurrent.TimeUnit;
 
 public abstract class enemigos extends personajes {
 	protected jugador jugador;
@@ -8,6 +9,7 @@ public abstract class enemigos extends personajes {
 	protected int alcancedisparo;
 	
 	public boolean mover() {
+		
 		return inteligencia.mover();
 	}
 	

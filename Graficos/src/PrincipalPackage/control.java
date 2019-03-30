@@ -10,6 +10,7 @@ public class control implements KeyListener {
 	private boolean izquierda,derecha,abajo,arriba,space;
 	private jugador jugador;
 	private tabla tabla;
+	private Panel p;
 	
 	
 	public control(jugador jugador) {
@@ -56,26 +57,36 @@ public class control implements KeyListener {
 	public void keyTyped(KeyEvent e) {
 	}
 
+	public void setPanel(Panel p) {
+		this.p = p;
+	}
+	
 	private void mover_arriba() {
 		tabla.setvalue(false, jugador.getx(), jugador.gety());
 		jugador.sety(jugador.gety()-20);
 		tabla.setvalue(true, jugador.getx(), jugador.gety());
+		p.paintJugador();
 	}
 	private void mover_abajo() {
 		tabla.setvalue(false, jugador.getx(), jugador.gety());
 		jugador.sety(jugador.gety()+20);
 		tabla.setvalue(true, jugador.getx(), jugador.gety());
+		p.paintJugador();
 	}
 	private void mover_der() {
 		tabla.setvalue(false, jugador.getx(), jugador.gety());
 		jugador.setx(jugador.getx()+20);
 		tabla.setvalue(true, jugador.getx(), jugador.gety());
+		p.paintJugador();
+
 	}
 
 	private void mover_izq() {
 		tabla.setvalue(false, jugador.getx(), jugador.gety());
 		jugador.setx(jugador.getx()-20);
 		tabla.setvalue(true, jugador.getx(), jugador.gety());
+		p.paintJugador();
+
 	}
 
 }

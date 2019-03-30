@@ -12,10 +12,14 @@ import Personajes.*;
 public class Panel extends JPanel { 
 	private PositionList<entidades> lista;
 	Frame frame;
+	private jugador jugador;
+	private boolean solojugador;
 	
-	public Panel(Frame ventana, PositionList<entidades> lista) {
+	public Panel(Frame ventana, jugador jugador, PositionList<entidades> lista) {
 		this.frame = ventana;
 		this.lista = lista;
+		this.jugador = jugador;
+		this.solojugador=false;
 	}
 
 	/*
@@ -27,10 +31,15 @@ public class Panel extends JPanel {
 		Image imagen = t.getImage("C:/Users/julie/Desktop/grass.png");
 		g.drawImage(imagen, 0, 0, 600,600, this);
 		
+		imagen = t.getImage(jugador.getruta());
+		g.drawImage(imagen, jugador.getx(), jugador.gety(), 20, 20, this);
 		for (Position<entidades> p : lista.positions()) {
 			imagen = t.getImage(p.element().getruta());
 			g.drawImage(imagen, p.element().getx(), p.element().gety(), 20,20, this);
 		}
-		
+	}
+	
+	public void paintJugador() {
+		repaint();
 	}
 }

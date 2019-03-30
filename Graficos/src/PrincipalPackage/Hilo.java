@@ -19,8 +19,8 @@ public class Hilo extends Thread {
 		while(ejecutar) {
 			try {
 				System.out.println ("Hilardo");
-				Thread.sleep(100);
 				p.repaint();
+				Thread.sleep(600);
 				actualizador.actualizar_entidades();
 				actualizador.chequear_colisiones();
 				//actualizador.actualizar_jugador();
