@@ -10,12 +10,10 @@ public class visitadordisparoenemigo extends visitador {
 	}
 	
 	public void visitar(Obstaculo obstaculo) {
-		System.out.println ("visitar carafeliz");
 		propio.setvida(0);
 	}
 
-	public void visitar(carafeliz carafeliz) {
-		System.out.println ("visitar carafeliz");
+	public void visitar(duendes carafeliz) {
 		carafeliz.setvida(carafeliz.getvida()-100);
 		propio.setvida(0);
 	}
@@ -28,6 +26,18 @@ public class visitadordisparoenemigo extends visitador {
 		System.out.println ("visitando al jugador");
 		jugador.setvida(jugador.getvida()-20);
 		propio.setvida(0);
+	}
+
+	@Override
+	public void visitar(disparojugador disparojugador) {
+		disparojugador.setvida(0);
+		propio.setvida(0);
+	}
+
+	@Override
+	public void visitar(dragones dragones) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

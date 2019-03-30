@@ -31,8 +31,6 @@ public class Panel extends JPanel {
 		Image imagen = t.getImage("C:/Users/julie/Desktop/grass.png");
 		g.drawImage(imagen, 0, 0, 600,600, this);
 		
-		imagen = t.getImage(jugador.getruta());
-		g.drawImage(imagen, jugador.getx(), jugador.gety(), 20, 20, this);
 		for (Position<entidades> p : lista.positions()) {
 			imagen = t.getImage(p.element().getruta());
 			g.drawImage(imagen, p.element().getx(), p.element().gety(), 20,20, this);
@@ -40,6 +38,7 @@ public class Panel extends JPanel {
 	}
 	
 	public void paintJugador() {
+		jugador.getvida();
 		repaint();
 	}
 }

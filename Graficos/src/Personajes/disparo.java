@@ -15,9 +15,16 @@ public abstract class disparo extends entidades{
 			tabla = tabla.getinstance(); 
 			cantidadmovimientos--; 
 			if(dirmovimiento == "arriba") {
-				tabla.setvalue(false, getx()/20, gety()/20);
-				tabla.setvalue(true, getx()/20, (gety()-20)/20);
 				sety(gety()-20);
+			}
+			if(dirmovimiento == "abajo") {
+				sety(gety()+20);
+			}
+			if(dirmovimiento == "derecha") {
+				setx(getx()+20);
+			}
+			if(dirmovimiento == "izquierda") {
+				setx(getx()-20);
 			}
 			if(cantidadmovimientos == 0) 
 				ret = true;

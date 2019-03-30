@@ -8,17 +8,12 @@ import Personajes.*;
  *  de forma aleatoria por el mapa.
  */
 
-public class inteligencia_dos extends Inteligencia_enemigos{
+public class inteligencia_aleatoria extends Inteligencia_enemigos{
 	
-	public inteligencia_dos (enemigos enemigo, actualizador a) {
+	public inteligencia_aleatoria (enemigos enemigo, actualizador a) {
 		this.enemigo_propio = enemigo; 
 		this.tabla = tabla.getinstance();
 		this.actualizador = a; 
-	}
-	
-	private int moneda_azar() {
-		//Este metodo retorna un 0 o un 1, al azar
-		return (int) (Math.random()*2);
 	}
 	
 	public boolean mover() {
@@ -29,16 +24,14 @@ public class inteligencia_dos extends Inteligencia_enemigos{
 			pos_y_enemigo = enemigo_propio.gety();
 			mover_alguneje();
 			
-			if(moneda_azar()==1)
-				generar_disparo();
-			
+			if(generar_numero()==10);
+				generar_disparo(cuatro_valores());
 		}
 		return false;
 	}
 	
 	private void mover_alguneje() {
 		int num = moneda_azar();
-		System.out.println ("Num: " + num);
 		if (num==1)
 			mover_enx();
 		else

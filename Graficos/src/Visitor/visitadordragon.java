@@ -1,12 +1,17 @@
 package Visitor;
 
-import Personajes.*;
+import Personajes.dragones;
+import Personajes.Obstaculo;
+import Personajes.duendes;
+import Personajes.disparoenemigo;
+import Personajes.disparojugador;
+import Personajes.enemigos;
+import Personajes.jugador;
 
-public class visitadorenemigo extends visitador{
-
+public class visitadordragon extends visitador {
 	private enemigos propio;
 	
-	public visitadorenemigo (enemigos propio) {
+	public visitadordragon (enemigos propio) {
 		this.propio = propio; 
 	}
 	
@@ -46,5 +51,4 @@ public class visitadorenemigo extends visitador{
 		// TODO Auto-generated method stub
 		
 	}
-
 }

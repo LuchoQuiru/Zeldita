@@ -7,13 +7,11 @@ public class actualizador {
 
 	private PositionList<entidades> lista ;
 	private tabla tabla;
-	private control control;
-	private jugador jugador;
+	jugador jugador;
 	
 	public actualizador (PositionList<entidades> lista, control control, jugador jugador) {
 		this.lista = lista; 
 		tabla = tabla.getinstance();
-		this.control = control; 
 		this.jugador = jugador;
 	}
 	
@@ -48,37 +46,8 @@ public class actualizador {
 		}
 	}
 	
-	/*public void actualizar_jugador() {
-		System.out.println ("Actualizar_jugador");
-		int posx = jugador.getx();
-		int posy = jugador.gety();
-		
-		if (control.getabajo()) {
-			if(!tabla.posicion_libre(posx,posy+20)) {
-				jugador.sety(posy+20);
-			}
-		}
-		if (control.getarriba()) {
-			if(!tabla.posicion_libre(posx,posy-20)) {
-				jugador.sety(posy-20);
-			}
-		}
-		if (control.getderecha()) {
-			if(!tabla.posicion_libre(posx+20,posy)) {
-				jugador.setx(posx+20);
-			}
-		}
-		if (control.getizquierda()) {
-			if(!tabla.posicion_libre(posx-20,posy)) {
-				jugador.setx(posx-20);
-			}
-		}
-		
-	}*/
-	
 	public void agregarDisparo(disparo d) {
 		lista.addFirst(d);
-		tabla.setvalue(true, d.getx()/20, d.gety()/20);
 	}
 	
 }

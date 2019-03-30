@@ -2,10 +2,10 @@ package Strategy;
 import PrincipalPackage.*;
 import Personajes.*;
 
-public class inteligencia_uno extends Inteligencia_enemigos {
+public class inteligencia_dirigida extends Inteligencia_enemigos {
 	private jugador jugador;
 	
-	public inteligencia_uno(jugador jugador, enemigos enemigo, actualizador a) {
+	public inteligencia_dirigida(jugador jugador, enemigos enemigo, actualizador a) {
 		this.jugador = jugador; 
 		enemigo_propio = enemigo;
 		this.tabla = tabla.getinstance();
@@ -22,16 +22,11 @@ public class inteligencia_uno extends Inteligencia_enemigos {
 			pos_y_enemigo = enemigo_propio.gety();
 			mover_alguneje();
 		
-			if(moneda_azar()==1)
-				generar_disparo();
+			if(generar_numero()==10)
+				generar_disparo(cuatro_valores());
 		}
 		return false;
 		
-	}
-	
-	private int moneda_azar() {
-		//Este metodo retorna un 0 o un 1, al azar
-		return (int) (Math.random()*2);
 	}
 	
 	private void mover_alguneje() {
