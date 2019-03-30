@@ -9,6 +9,7 @@ public class control implements KeyListener {
 	private jugador jugador;
 	private tabla tabla;
 	private Panel p;
+	private boolean pausado;
 	private actualizador actualizador;
 	private String direccion;
 	
@@ -16,34 +17,37 @@ public class control implements KeyListener {
 		this.jugador = jugador;
 		tabla = tabla.getinstance();
 		direccion = "arriba";
+		pausado = false;
 	}
 
 	public void keyPressed(KeyEvent e) {
-		if(KeyEvent.VK_LEFT == e.getKeyCode()) {
-			if (!tabla.posicion_libre(jugador.getx()-20,jugador.gety())) {
-				mover_izq();
-				direccion = "izquierda";
+		if (!pausado) {
+			if(KeyEvent.VK_LEFT == e.getKeyCode()) {
+				if (!tabla.posicion_libre(jugador.getx()-20,jugador.gety())) {
+					mover_izq();
+					direccion = "izquierda";
+				}
 			}
-		}
-		if(KeyEvent.VK_RIGHT == e.getKeyCode()) {
-			if (!tabla.posicion_libre(jugador.getx()+20,jugador.gety())) {
-				mover_der();
-				direccion = "derecha";
+			if(KeyEvent.VK_RIGHT == e.getKeyCode()) {
+				if (!tabla.posicion_libre(jugador.getx()+20,jugador.gety())) {
+					mover_der();
+					direccion = "derecha";
+				}
 			}
-		}
-		if(KeyEvent.VK_SPACE == e.getKeyCode()) {
-			generar_disparo();
-		}
-		if(KeyEvent.VK_UP == e.getKeyCode()) {
-			if (!tabla.posicion_libre(jugador.getx(),jugador.gety()-20)) {
-				mover_arriba();
-				direccion = "arriba";
+			if(KeyEvent.VK_SPACE == e.getKeyCode()) {
+				generar_disparo();
 			}
-		}
-		if(KeyEvent.VK_DOWN == e.getKeyCode()) {
-			if (!tabla.posicion_libre(jugador.getx(),jugador.gety()+20)) {
-				mover_abajo();
-				direccion = "abajo";
+			if(KeyEvent.VK_UP == e.getKeyCode()) {
+				if (!tabla.posicion_libre(jugador.getx(),jugador.gety()-20)) {
+					mover_arriba();
+					direccion = "arriba";
+				}
+			}
+			if(KeyEvent.VK_DOWN == e.getKeyCode()) {
+				if (!tabla.posicion_libre(jugador.getx(),jugador.gety()+20)) {
+					mover_abajo();
+					direccion = "abajo";
+				}
 			}
 		}
 	}
@@ -95,6 +99,10 @@ public class control implements KeyListener {
 		tabla.setvalue(true, jugador.getx(), jugador.gety());
 		p.paintJugador();
 
+	}
+
+	public void pause(boolean b) {
+		pausado = b; 
 	}
 
 }

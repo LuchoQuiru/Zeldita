@@ -33,7 +33,7 @@ public class Create {
 		control.setPanel(panel);
 		control.setactualizador(actualizador);
 
-		hilo = new Hilo(panel,actualizador);
+		hilo = new Hilo(panel,actualizador,this);
 		hilo.run();
 	}
 	
@@ -42,7 +42,31 @@ public class Create {
 		tabla.setvalue(true, i/20, j/20);
 	}
 	
-	private void generar_jugador () {
+	public boolean isdead() {
+		int ret = jugador.getvida();
+		if (ret == 0) {
+			jugador.setRuta ("C:/Users/julie/Desktop/X.png");
+			this.control.pause(true);
+		}
+		return ret == 0;
+	}
+	
+	public void regenerar_jugador() {
+		jugador.setvida(100);
+		jugador.setRuta ("C:/Users/julie/Desktop/3.png");
+		int random1 = generar_numero();
+		int random2 = generar_numero();
+		while (tabla.posicion_libre(random1,random2) == true) {
+			random1 = generar_numero();
+			random2 = generar_numero();
+		}
+		jugador.setx(random1);
+		jugador.sety(random2);
+		lista.addFirst(jugador);
+		control.pause(false);
+	}
+	
+	public void generar_jugador () {
 		int random1 = generar_numero();
 		int random2 = generar_numero();
 		while (tabla.posicion_libre(random1,random2) == true) {

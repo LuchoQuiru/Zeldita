@@ -23,7 +23,6 @@ public class visitadordisparoenemigo extends visitador {
 	}
 
 	public void visitar(jugador jugador) {
-		System.out.println ("visitando al jugador");
 		jugador.setvida(jugador.getvida()-20);
 		propio.setvida(0);
 	}

@@ -11,10 +11,9 @@ public class jugador extends personajes {
 		this.v = new visitadorjugador(this);
 		this.vida=100;
 	}
-
-	public int getvida() {
-		System.out.println ("vida jugador: " + vida);
-		return vida;
+	
+	public void setRuta (String s) {
+		this.ruta = s;
 	}
 	
 	public boolean mover() {

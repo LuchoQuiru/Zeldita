@@ -32,7 +32,7 @@ public class visitadorenemigo extends visitador{
 	@Override
 	public void visitar(jugador jugador) {
 		jugador.setvida(0);
-		
+		this.propio.setvida(0);
 	}
 
 	@Override
