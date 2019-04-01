@@ -22,8 +22,8 @@ public class inteligencia_dirigida extends Inteligencia_enemigos {
 			pos_y_enemigo = enemigo_propio.gety();
 			mover_alguneje();
 		
-			/*if(generar_numero()==10)
-				generar_disparo(cuatro_valores());*/
+			if(generar_numero()==10)
+				generar_disparo(cuatro_valores());
 		}
 		return false;
 		
