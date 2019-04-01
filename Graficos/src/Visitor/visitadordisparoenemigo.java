@@ -2,14 +2,14 @@ package Visitor;
 
 import Personajes.*;
 
-public class visitadordisparoenemigo extends visitador {
+public class visitadordisparoenemigo implements visitador {
 	private disparoenemigo propio;
 	
 	public visitadordisparoenemigo(disparoenemigo d) {
 		propio = d;
 	}
 	
-	public void visitar(Obstaculo obstaculo) {
+	public void visitar(obstaculos obstaculo) {
 		propio.setvida(0);
 	}
 
@@ -36,6 +36,11 @@ public class visitadordisparoenemigo extends visitador {
 	@Override
 	public void visitar(dragones dragones) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void visitar(frankestein frankestein) {
 		
 	}
 

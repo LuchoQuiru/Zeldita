@@ -1,9 +1,9 @@
 package PrincipalPackage;
 
-public class Prinicipal {
+public class main {
 	 
 	
 	public static void main(String[] args){
-		new Create();
+		new creador();
 	}
 }

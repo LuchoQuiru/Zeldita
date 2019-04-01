@@ -8,7 +8,7 @@ import Singleton.tabla;
 public class control implements KeyListener {
 	private jugador jugador;
 	private tabla tabla;
-	private Panel p;
+	private graficador p;
 	private boolean pausado;
 	private actualizador actualizador;
 	private String direccion;
@@ -53,23 +53,24 @@ public class control implements KeyListener {
 	}
 	
 	protected void generar_disparo () { 
-		disparo d = new disparojugador(jugador.getx(), jugador.gety(), 10, direccion);
+		disparo d = null;
+		if(direccion == "arriba")
+			d = new disparojugador(jugador.getx(), jugador.gety()-20, jugador.getAlcance(), "arriba");
+		if(direccion == "abajo")
+			d = new disparojugador(jugador.getx(), jugador.gety()+20, jugador.getAlcance(), "abajo");
+		if(direccion == "derecha")
+				d = new disparojugador(jugador.getx()+20, jugador.gety(), jugador.getAlcance(), "derecha");
+		if(direccion == "izquierda")
+					d = new disparojugador(jugador.getx()-20, jugador.gety(), jugador.getAlcance(), "izquierda");
+		
 		actualizador.agregarDisparo(d);
 	}
 	
 	public void setactualizador (actualizador actualizador) {
 		this.actualizador = actualizador;
 	}
-	
-	
-	public void keyReleased(KeyEvent e) {
-	}
 
-
-	public void keyTyped(KeyEvent e) {
-	}
-
-	public void setPanel(Panel p) {
+	public void setPanel(graficador p) {
 		this.p = p;
 	}
 	
@@ -105,4 +106,11 @@ public class control implements KeyListener {
 		pausado = b; 
 	}
 
+	
+	public void keyReleased(KeyEvent e) {
+	}
+
+
+	public void keyTyped(KeyEvent e) {
+	}
 }

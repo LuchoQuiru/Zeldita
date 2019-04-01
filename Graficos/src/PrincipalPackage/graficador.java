@@ -9,13 +9,13 @@ import Personajes.*;
 
 
 @SuppressWarnings("serial")
-public class Panel extends JPanel { 
+public class graficador extends JPanel { 
 	private PositionList<entidades> lista;
-	Frame frame;
+	ventana frame;
 	private jugador jugador;
 	private boolean solojugador;
 	
-	public Panel(Frame ventana, jugador jugador, PositionList<entidades> lista) {
+	public graficador(ventana ventana, jugador jugador, PositionList<entidades> lista) {
 		this.frame = ventana;
 		this.lista = lista;
 		this.jugador = jugador;

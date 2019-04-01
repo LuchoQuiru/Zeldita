@@ -2,10 +2,10 @@ package Visitor;
 
 import Personajes.*;
 
-public class visitadorobstaculo extends visitador {
+public class visitadorobstaculo implements visitador {
 
 	@Override
-	public void visitar(Obstaculo obstaculo) {
+	public void visitar(obstaculos obstaculo) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -35,6 +35,12 @@ public class visitadorobstaculo extends visitador {
 
 	@Override
 	public void visitar(dragones dragones) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void visitar(frankestein frankestein) {
 		// TODO Auto-generated method stub
 		
 	}

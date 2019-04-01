@@ -2,7 +2,7 @@ package Visitor;
 
 import Personajes.*;
 
-public class visitadorjugador extends visitador{
+public class visitadorjugador implements visitador{
 	private jugador jugador;
 	
 	public visitadorjugador (jugador jugador) {
@@ -10,7 +10,7 @@ public class visitadorjugador extends visitador{
 	}
 	
 	@Override
-	public void visitar(Obstaculo obstaculo) {
+	public void visitar(obstaculos obstaculo) {
 	}
 
 	@Override
@@ -42,6 +42,12 @@ public class visitadorjugador extends visitador{
 	public void visitar(dragones dragones) {
 		dragones.setvida(0);
 		this.jugador.setvida(0);
+	}
+
+	@Override
+	public void visitar(frankestein frankestein) {
+		frankestein.setvida(0);
+		jugador.setvida(0);
 	}
 
 }

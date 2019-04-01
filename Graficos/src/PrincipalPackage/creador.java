@@ -4,17 +4,17 @@ import Singleton.*;
 import Lista.*;
 import Personajes.*;
 
-public class Create {
-	private Frame ventana ;
-	private Panel panel ;
-	private Hilo hilo;
+public class creador {
+	private ventana ventana ;
+	private graficador panel ;
+	private hilo hilo;
 	PositionList<entidades> lista ;
 	private jugador jugador;
 	private tabla tabla;
 	private control control;
 	private actualizador actualizador;
 	
-	Create(){
+	creador(){
 		crear();
 	}
 	
@@ -26,14 +26,14 @@ public class Create {
 		actualizador = new actualizador (lista,control, jugador);
 		generar_obstaculos();
 		generar_enemigos();
-		ventana = new Frame(control);
-		panel = new Panel(ventana,jugador,lista);
+		ventana = new ventana(control);
+		panel = new graficador(ventana,jugador,lista);
 		ventana.addpanel(panel);
 		
 		control.setPanel(panel);
 		control.setactualizador(actualizador);
 
-		hilo = new Hilo(panel,actualizador,this);
+		hilo = new hilo(panel,actualizador,this);
 		hilo.run();
 	}
 	
@@ -45,7 +45,7 @@ public class Create {
 	public boolean isdead() {
 		int ret = jugador.getvida();
 		if (ret == 0) {
-			jugador.setRuta ("C:/Users/julie/Desktop/X.png");
+			jugador.setRutaPerder ();
 			this.control.pause(true);
 		}
 		return ret == 0;
@@ -53,7 +53,7 @@ public class Create {
 	
 	public void regenerar_jugador() {
 		jugador.setvida(100);
-		jugador.setRuta ("C:/Users/julie/Desktop/3.png");
+		jugador.setRutaJugando();
 		int random1 = generar_numero();
 		int random2 = generar_numero();
 		while (tabla.posicion_libre(random1,random2) == true) {
@@ -86,7 +86,7 @@ public class Create {
 				random1 = generar_numero();
 				random2 = generar_numero();
 			}
-			lista.addFirst(new Obstaculo(random1,random2));
+			lista.addFirst(new obstaculos(random1,random2,moneda_azar()));
 			agregar_entabla(random1,random2);
 		}
 	}
@@ -97,10 +97,11 @@ public class Create {
 	}
 	
 	private void generar_enemigos () {
-		
-		for (int i = 0 ; i<10 ; i++) {
-			int random1 = generar_numero();
-			int random2 = generar_numero();
+		int random1 = 0;
+		int random2 = 0;
+		for (int i = 0 ; i<0 ; i++) {
+			random1 = generar_numero();
+			random2 = generar_numero();
 			while (tabla.posicion_libre(random1,random2) == true) {
 				random1 = generar_numero();
 				random2 = generar_numero();
@@ -111,6 +112,15 @@ public class Create {
 				lista.addFirst(new dragones(random1, random2, jugador,actualizador));
 			agregar_entabla(random1,random2);
 		}
+		
+		//Genero un enemigo de tipo frankestein
+		while (tabla.posicion_libre(random1,random2) == true) {
+			random1 = generar_numero();
+			random2 = generar_numero();
+		}
+		lista.addFirst(new frankestein (random1, random2, jugador, actualizador));
+		agregar_entabla(random1,random2);
+		
 	}
 
 	private int generar_numero() {

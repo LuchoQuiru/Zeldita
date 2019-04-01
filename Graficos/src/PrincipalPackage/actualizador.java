@@ -30,6 +30,7 @@ public class actualizador {
 						actualizar_jugador();
 			}
 		}
+		chequear_colisiones();
 	}
 	
 	public void actualizar_jugador() {

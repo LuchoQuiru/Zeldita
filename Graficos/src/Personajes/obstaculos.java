@@ -2,12 +2,15 @@ package Personajes;
 
 import Visitor.*;
 
-public class Obstaculo extends entidades {
-
-	public Obstaculo (int posx, int posy){
+public class obstaculos extends entidades {
+	
+	public obstaculos (int posx, int posy, int i){
 		this.posx = posx;
 		this.posy = posy;
-		ruta = "C:/Users/julie/Desktop/obstaculo.png";
+		if (i==1) 
+			ruta = "C:/Users/julie/Desktop/tree.png";
+		else 
+			ruta = "C:/Users/julie/Desktop/shovel.png";
 		this.v= new visitadorobstaculo();
 		this.vida=100;
 	}

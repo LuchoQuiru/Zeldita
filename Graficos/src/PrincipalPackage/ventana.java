@@ -2,10 +2,10 @@ package PrincipalPackage;
 import javax.swing.JFrame;
 
 @SuppressWarnings("serial")
-public class Frame extends JFrame {
-	Panel p;
+public class ventana extends JFrame {
+	graficador p;
 	
-	public Frame(control t){
+	public ventana(control t){
 		
 		setSize(620,640);
 		setDefaultCloseOperation(3);
@@ -14,7 +14,7 @@ public class Frame extends JFrame {
 		addKeyListener(t);
 	}
 	
-	public void addpanel(Panel p) {
+	public void addpanel(graficador p) {
 		this.add(p);
 	}
 }

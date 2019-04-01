@@ -12,16 +12,16 @@ public abstract class Inteligencia_enemigos {
 	
 	public abstract boolean mover() ;
 	
-	protected void generar_disparo (int i) { 
-		String dir = "arriba";
-		if (i==2)
-			dir = "abajo";
-		if (i==3)
-			dir = "derecha";
+	protected void generar_disparo (int i) {
+		disparo d = null;
+		if(i==1)
+			d = new disparoenemigo(enemigo_propio.getx(), enemigo_propio.gety()-20, enemigo_propio.getAlcance(), "arriba");
+		if (i==2) 
+			d = new disparoenemigo(enemigo_propio.getx(), enemigo_propio.gety()+20, enemigo_propio.getAlcance(), "abajo");
+		if (i==3) 
+			d = new disparoenemigo(enemigo_propio.getx()+20, enemigo_propio.gety(), enemigo_propio.getAlcance(), "derecha");
 		if (i==4)
-			dir = "izquierda";
-		
-		disparo d = new disparoenemigo(enemigo_propio.getx(), enemigo_propio.gety()-20, enemigo_propio.getAlcance(), dir);
+			d = new disparoenemigo(enemigo_propio.getx()-20, enemigo_propio.gety()-20, enemigo_propio.getAlcance(), "izquierda");
 		actualizador.agregarDisparo(d);
 	}
 	
