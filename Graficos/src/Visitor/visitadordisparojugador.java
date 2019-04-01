@@ -42,8 +42,8 @@ public class visitadordisparojugador implements visitador{
 
 	@Override
 	public void visitar(dragones dragones) {
-		// TODO Auto-generated method stub
-		
+		dragones.setvida(0);
+		propio.setvida(0);
 	}
 
 	@Override

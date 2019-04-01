@@ -23,10 +23,15 @@ public class hilo extends Thread {
 				p.repaint();
 				Thread.sleep(350);
 				actualizador.actualizar_entidades();
+				System.out.println(c.lista.size());
 				if(c.isdead()) {
 					p.repaint(); 
 					Thread.sleep(4000);
 					c.regenerar_jugador();
+				}
+				if (c.ganaste()) {
+					c.ganar();
+					terminar();
 				}
 			}
 			catch (InterruptedException e) {

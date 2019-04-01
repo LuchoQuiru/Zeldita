@@ -1,5 +1,7 @@
 package Personajes;
 
+import java.io.File;
+
 import Visitor.*;
 
 public class jugador extends personajes {
@@ -9,8 +11,8 @@ public class jugador extends personajes {
 	public jugador (int posx, int posy){
 		this.posx = posx;
 		this.posy = posy;
-		ruta_jugando = "C:/Users/julie/Desktop/fantasma.png";
-		ruta_perder = "C:/Users/julie/Desktop/X.png";
+		ruta_jugando = "imagenes"+File.separator+"fantasma.png";
+		ruta_perder = "imagenes"+File.separator+"X.png";
 		ruta = ruta_jugando;
 		this.v = new visitadorjugador(this);
 		this.vida=100;

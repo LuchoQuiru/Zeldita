@@ -8,7 +8,8 @@ public class creador {
 	private ventana ventana ;
 	private graficador panel ;
 	private hilo hilo;
-	PositionList<entidades> lista ;
+	public PositionList<entidades> lista ;
+	private int cant_base;
 	private jugador jugador;
 	private tabla tabla;
 	private control control;
@@ -19,6 +20,7 @@ public class creador {
 	}
 	
 	private void crear () {
+		cant_base=0;
 		tabla = tabla.getinstance();
 		lista = new List<entidades> ();
 		generar_jugador();
@@ -62,11 +64,19 @@ public class creador {
 		}
 		jugador.setx(random1);
 		jugador.sety(random2);
-		lista.addFirst(jugador);
 		control.pause(false);
 	}
 	
+	public boolean ganaste() {
+		return (lista.size() == cant_base);
+	}
+	
+	public void ganar() {
+		panel.setganaste();
+	}
+	
 	public void generar_jugador () {
+		cant_base++;
 		int random1 = generar_numero();
 		int random2 = generar_numero();
 		while (tabla.posicion_libre(random1,random2) == true) {
@@ -80,6 +90,7 @@ public class creador {
 	
 	private void generar_obstaculos() {
 		for (int i = 0 ; i<50 ; i++) {
+			cant_base++;
 			int random1 = generar_numero();
 			int random2 = generar_numero();
 			while (tabla.posicion_libre(random1,random2) == true) {
@@ -89,6 +100,7 @@ public class creador {
 			lista.addFirst(new obstaculos(random1,random2,moneda_azar()));
 			agregar_entabla(random1,random2);
 		}
+		
 	}
 	
 	private int moneda_azar() {
@@ -99,7 +111,7 @@ public class creador {
 	private void generar_enemigos () {
 		int random1 = 0;
 		int random2 = 0;
-		for (int i = 0 ; i<0 ; i++) {
+		for (int i = 0 ; i<1 ; i++) {
 			random1 = generar_numero();
 			random2 = generar_numero();
 			while (tabla.posicion_libre(random1,random2) == true) {

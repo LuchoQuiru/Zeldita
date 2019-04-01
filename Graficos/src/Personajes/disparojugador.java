@@ -1,5 +1,7 @@
 package Personajes;
 
+import java.io.File;
+
 import Visitor.*;
 
 public class disparojugador extends disparo {
@@ -8,7 +10,7 @@ public class disparojugador extends disparo {
 		this.cantidadmovimientos = cantidadmovimientos; 
 		this.posx = posx;
 		this.posy = posy;
-		this.ruta = "C:/Users/julie/Desktop/beer.png";
+		this.ruta = "imagenes"+File.separator+"beer.png";
 		this.dirmovimiento = dirmovimiento;
 		this.vida=100;
 		this.v = new visitadordisparojugador(this);

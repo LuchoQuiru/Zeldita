@@ -26,12 +26,12 @@ public class actualizador {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 						}
-						debo_eliminar = true;
 						actualizar_jugador();
 			}
 		}
 		chequear_colisiones();
 	}
+
 	
 	public void actualizar_jugador() {
 		jugador.mover();
@@ -50,5 +50,6 @@ public class actualizador {
 	public void agregarDisparo(disparo d) {
 		lista.addFirst(d);
 	}
+
 	
 }

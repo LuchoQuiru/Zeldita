@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 public class List<E> implements PositionList<E>{
 
+	
 	protected Nodo<E> header;
 	protected Nodo<E> trailer;
 	protected int size;

@@ -1,5 +1,7 @@
 package Personajes;
 
+import java.io.File;
+
 import Visitor.*;
 
 public class obstaculos extends entidades {
@@ -8,7 +10,7 @@ public class obstaculos extends entidades {
 		this.posx = posx;
 		this.posy = posy;
 		if (i==1) 
-			ruta = "C:/Users/julie/Desktop/tree.png";
+			ruta = "imagenes"+File.separator+"tree.png";
 		else 
 			ruta = "C:/Users/julie/Desktop/shovel.png";
 		this.v= new visitadorobstaculo();
@@ -16,10 +18,7 @@ public class obstaculos extends entidades {
 	}
 
 	public boolean mover() {
-		if (vida==0) 
-				return true;
-		else
-				return false;
+		return false;
 	}
 
 	@Override

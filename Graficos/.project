@@ -3,6 +3,7 @@
 	<name>Zelda</name>
 	<comment></comment>
 	<projects>
+		<project>repository2</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
