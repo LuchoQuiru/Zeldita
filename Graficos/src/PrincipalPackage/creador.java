@@ -8,7 +8,7 @@ public class creador {
 	private ventana ventana ;
 	private graficador panel ;
 	private hilo hilo;
-	public PositionList<entidades> lista ;
+	private PositionList<entidades> lista ;
 	private int cant_base;
 	private jugador jugador;
 	private tabla tabla;
@@ -111,7 +111,7 @@ public class creador {
 	private void generar_enemigos () {
 		int random1 = 0;
 		int random2 = 0;
-		for (int i = 0 ; i<2 ; i++) {
+		for (int i = 0 ; i<7 ; i++) {
 			random1 = generar_numero();
 			random2 = generar_numero();
 			while (tabla.posicion_libre(random1,random2) == true) {
