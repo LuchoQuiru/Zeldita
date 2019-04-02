@@ -35,7 +35,7 @@ public class graficador extends JPanel {
 		super.paint(g);
 		Toolkit t = Toolkit.getDefaultToolkit();
 		if(!ganaste) {
-			Image imagen = t.getImage( File.separator +"imagenes"+File.separator+"grass.png");
+			Image imagen = t.getImage("imagenes"+File.separator+"grass.png");
 			g.drawImage(imagen, 0, 0, 600,600, this);
 		
 			for (Position<entidades> p : lista.positions()) {
@@ -44,13 +44,12 @@ public class graficador extends JPanel {
 			}
 		}
 		else {
-			Image imagen = t.getImage( "imagenes"+File.separator+"win.png");
+			Image imagen = t.getImage("imagenes"+File.separator+"win.png");
 			g.drawImage(imagen, 0, 0, 600,600, this);
 		}
 	}
 	
 	public void paintJugador() {
-		jugador.getvida();
 		repaint();
 	}
 }

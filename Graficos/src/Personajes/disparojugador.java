@@ -10,7 +10,7 @@ public class disparojugador extends disparo {
 		this.cantidadmovimientos = cantidadmovimientos; 
 		this.posx = posx;
 		this.posy = posy;
-		this.ruta = "imagenes"+File.separator+"beer.png";
+		this.ruta ="imagenes"+File.separator+"beer.png";
 		this.dirmovimiento = dirmovimiento;
 		this.vida=100;
 		this.v = new visitadordisparojugador(this);
