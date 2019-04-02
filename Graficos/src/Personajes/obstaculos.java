@@ -10,9 +10,9 @@ public class obstaculos extends entidades {
 		this.posx = posx;
 		this.posy = posy;
 		if (i==1) 
-			ruta = "imagenes"+File.separator+"tree.png";
+			ruta = "imagenes"+ File.separator + "tree.png";
 		else 
-			ruta = "C:/Users/julie/Desktop/shovel.png";
+			ruta = "imagenes" + File.separator+"shovel.png";
 		this.v= new visitadorobstaculo();
 		this.vida=100;
 	}

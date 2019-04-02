@@ -12,7 +12,7 @@ public class duendes extends enemigos {
 	public duendes (int posx, int posy, jugador jugador,actualizador actualizador){
 		this.posx = posx;
 		this.posy = posy;
-		ruta = "imagenes"+File.separator+"duende.png";
+		ruta =  "imagenes"+File.separator+"duende.png";
 		this.alcancedisparo = 5;
 		v = new visitadorenemigo(this);
 		this.jugador = jugador;

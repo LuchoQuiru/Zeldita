@@ -11,8 +11,8 @@ public class jugador extends personajes {
 	public jugador (int posx, int posy){
 		this.posx = posx;
 		this.posy = posy;
-		ruta_jugando = "imagenes"+File.separator+"fantasma.png";
-		ruta_perder = "imagenes"+File.separator+"X.png";
+		ruta_jugando = File.separator + "imagenes" + File.separator + "fantasma.png";
+		ruta_perder = File.separator  + "imagenes"+File.separator+"X.png";
 		ruta = ruta_jugando;
 		this.v = new visitadorjugador(this);
 		this.vida=100;
